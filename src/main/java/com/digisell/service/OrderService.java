@@ -182,7 +182,7 @@ public class OrderService {
         sellerWalletRepository.save(wallet);
 
         // Automated Email Dispatch
-        String accessPortalUrl = "http://localhost:5173/?view=access&orderId=" + order.getOrderId() + "&token=" + order.getDownloadToken();
+        String accessPortalUrl = "http://localhost:5173/access?orderId=" + order.getOrderId() + "&token=" + order.getDownloadToken();
         String directFileUrl = product != null ? product.getFileUrl() : "#";
         emailNotificationService.sendOrderDeliveryEmail(order, accessPortalUrl, directFileUrl);
     }
